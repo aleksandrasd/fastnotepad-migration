@@ -62,7 +62,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: artifacts/migrate-ubuntu-latest/migrate
-          asset_name: migrate-linux
+          asset_name: migrate-linux-latest
           asset_content_type: application/octet-stream
 
       - name: Upload Windows release asset
@@ -72,7 +72,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: artifacts/migrate-windows-latest/migrate.exe
-          asset_name: migrate-windows.exe
+          asset_name: migrate-windows-latest
           asset_content_type: application/octet-stream
 
       - name: Upload macOS release asset
@@ -82,5 +82,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: artifacts/migrate-macos-latest/migrate
-          asset_name: migrate-macos
+          asset_name: migrate-macos-latest
           asset_content_type: application/octet-stream
