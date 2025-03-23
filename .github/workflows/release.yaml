@@ -25,14 +25,14 @@ jobs:
 
       - name: Build executable
         run: |
-          pyinstaller --onefile --name migrate.py migrate
+          pyinstaller --onefile --name migrate migrate.py
         shell: bash
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: migrate-${{ matrix.os }}
-          path: dist/migrate/migrate*
+          path: dist/
 
   release:
     runs-on: ubuntu-latest
