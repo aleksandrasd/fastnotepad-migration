@@ -1,6 +1,6 @@
 # Fastnote migration/convertion
 
-Migrate (convert) android app [fastnotepad](https://play.google.com/store/apps/details?id=net.fast_notepad_notes_app.fastnotepad&hl=en) notes from previous version format to lastest version format. Earlier app version stored notes in plain text files. Latest app version stores notes in a single file with specific structure. Program takes folder of 
+Migrate (convert) android app [fastnotepad](https://play.google.com/store/apps/details?id=net.fast_notepad_notes_app.fastnotepad&hl=en) notes from previous version format to latest version format. Earlier app version stored notes in plain text files. Latest app version stores notes in a single file with specific structure. Program takes folder of 
 
 # How to run
 
