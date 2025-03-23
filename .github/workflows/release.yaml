@@ -25,14 +25,14 @@ jobs:
 
       - name: Build executable
         run: |
-          pyinstaller --onefile --name my_app my_script.py
+          pyinstaller --onefile --name migrate.py migrate
         shell: bash
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: my_app-${{ matrix.os }}
-          path: dist/
+          name: migrate-${{ matrix.os }}
+          path: dist/migrate/migrate*
 
   release:
     runs-on: ubuntu-latest
@@ -49,10 +49,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ github.run_id }} # Use the run ID as a unique tag
-          release_name: Release v${{ github.run_id }}
+          tag_name: v0.1.${{ github.run_id }}
+          release_name: Release v0.1.${{ github.run_id }}
           draft: false
-          prerelease: false
+          prerelease: true
 
       - name: Upload Linux release asset
         uses: actions/upload-release-asset@v1
@@ -60,8 +60,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: artifacts/my_app-ubuntu-latest/my_app
-          asset_name: my_app-linux
+          asset_path: artifacts/migrate-ubuntu/migrate
+          asset_name: migrate-linux
           asset_content_type: application/octet-stream
 
       - name: Upload Windows release asset
@@ -70,8 +70,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: artifacts/my_app-windows-latest/my_app.exe
-          asset_name: my_app-windows.exe
+          asset_path: artifacts/migrate-windows-latest/migrate.exe
+          asset_name: migrate-windows.exe
           asset_content_type: application/octet-stream
 
       - name: Upload macOS release asset
@@ -80,6 +80,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: artifacts/my_app-macos-latest/my_app
-          asset_name: my_app-macos
+          asset_path: artifacts/migrate-macos-latest/migrate
+          asset_name: migrate-macos
           asset_content_type: application/octet-stream
