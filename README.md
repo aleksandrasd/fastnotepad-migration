@@ -15,8 +15,14 @@ Open prompt.
 Migrate (convert) [fastnotepad](https://play.google.com/store/apps/details?id=net.fast_notepad_notes_app.fastnotepad&hl=en) notes that exists in folder `fastnotes`:
 
 ```bash
-migrate fastnotes/ backup
+migrate-<your os>-latest fastnotes/ backup
 ```
+
+for windows:
+```bash
+migrate-widows-latest fastnotes/ backup
+```
+
 
 This will create file `backup` containing notes in the newest format.
 
